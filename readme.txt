@@ -151,15 +151,15 @@ Yes. All links with class **nofancybox** that would normally get auto-enabled, w
 
 = Will a NextGen gallery be displayed in a FancyBox overlay ? =
 
-It *can* be. 
+NetxGEN has its own built in FancyBox version along with a choice of other lightbox scripts but if you prefer to use Easy FancyBox (because of better customisability) then you need to take some steps to make the two plugins compatible.
 
-1. Switch OFF the FancyBox Auto-gallery option; and 
-1. set the NextGen option "JavaScript Thumbnail effect" to "Custom"; and 
-1. fill the code line field with 
+1. Go to your Settings > Media admin page and switch OFF the FancyBox Auto-gallery option; 
+1. Go to Gallery > Other Options and set the Lightbox Effects option to "No lightbox" and click on Show Advanced Settings;
+1. fill the Code field with 
 `
 class="fancybox" rel="%GALLERY_NAME%"
 `
-
+1. Leave the other fields empty and save your settings.
 
 = Can I use ONE thumbnail to open a complete gallery ? =
 
@@ -189,15 +189,13 @@ General steps:
 
 **A.** Place the shortcode of your choice in your page/post content.
 
-**B.** Configure NextGen on **Gallery > Options > Gallery settings** to at least have the following options set like this:
+**B.** Configure NextGen on **Gallery > Gallery Settings** to Display galleries as "NextGEN Basic Thumbnails" and then under the NextGEN Basic Thumbnails to at least have the following options set like this:
 
 1. Number of images per page: 1
-1. Integrate slideshow: unchecked (optional but advised: use auto-rotation in the FancyBox settings instead)
-1. Show first: Thumbnails
-1. Show ImageBrowser: unchecked
-1. Add hidden images: checked
+1. Use imagebrowser effect: No
+1. Add hidden images: Yes
 
-**C.** Optional: add the following new CSS rule to your theme stylesheet (or install [Custom CSS](http://wordpress.org/extend/plugins/safecss/) and add it on the new Appearance > Edit CSS admin page) to hide the page browsing links below the gallery thumbnail.
+**C.** Optional: add the following new CSS rule to your theme stylesheet (or install [Custom CSS](http://wordpress.org/plugins/safecss/) or [Jetpack](http://wordpress.org/plugins/jetpack/) and add it on the new Appearance > Edit CSS admin page) to hide the page browsing links below the gallery thumbnail.
 `
 .ngg-navigation {
 display:none;
