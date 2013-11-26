@@ -47,7 +47,7 @@ Visit [FancyBox](http://fancybox.net/) for more information, examples and the Fa
 - **French** * Emmanuel Maillard (version 1.5.5)
 - **Gujarati** * Apoto Team http://www.apoto.com (version 1.5.0)
 - **Hindi** * Outshine Solutions http://outshinesolutions.com (version 1.3.4.9)
-- **Indonesian** * Nasrulhaq Muiz http://al-badar.net (version 1.3.4.9)
+- **Indonesian** * Nasrulhaq Muiz http://al-badar.net (version 1.5.5)
 - **Lithuanian** * Vincent G http://www.host1free.com (version 1.3.4.9)
 - **Polish** * Kamil Szymański (version 1.3.4.9)
 - **Romanian** * Web Geek Sciense http://webhostinggeeks.com/ (version 1.3.4.9)
