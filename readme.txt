@@ -239,7 +239,11 @@ If you do'nt have *Auto-detect* checked under **SWF** on Settings > Media admin 
 
 = How do I show content with different sizes? =
 
-FancyBox tries to detect the size of the conten automatically but if it can not find a size, it will default to the settings for that particular content type as set on the Settings > Media page. You can manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. For example, a Flash movie with different size:
+FancyBox tries to detect the size of the conten automatically but if it can not find a size, it will default to the settings for that particular content type as set on the Settings > Media page. 
+
+You can manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. Make sure the option "Inlcude the Metadata jQuery extension script..." under FancyBox | Links on Settings > Media is enabled.
+
+For example, a Flash movie with different size:
 
 `
 <a class="fancybox-swf {width:1024,height:675}" href="link-to-your-swf"></a>
