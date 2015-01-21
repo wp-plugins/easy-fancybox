@@ -669,11 +669,13 @@
 		},
 
 		_preload_images = function() {
-			var href, 
+			var href,
+				obj,
 				objNext;
 
 			if ((currentArray.length -1) > currentIndex) {
-				href = currentArray[ currentIndex + 1 ].href;
+				obj = currentArray[ currentIndex + 1 ];
+				href = obj.href;
 
 				if (typeof href !== 'undefined' && (href.match(imgRegExp) || $(obj).hasClass("image")) ) {
 					objNext = new Image();
@@ -682,7 +684,8 @@
 			}
 
 			if (currentIndex > 0) {
-				href = currentArray[ currentIndex - 1 ].href;
+				obj = currentArray[ currentIndex - 1 ];
+				href = obj.href;
 
 				if (typeof href !== 'undefined' && (href.match(imgRegExp) || $(obj).hasClass("image")) ) {
 					objNext = new Image();
@@ -1142,8 +1145,8 @@
 		autoResize : true, //!isTouch
 
 		ajax : {},
-		swf : { wmode: 'transparent' },
-		svg : { wmode: 'transparent' },
+		swf : { wmode: 'opaque' },
+		svg : { wmode: 'opaque' },
 
 		hideOnOverlayClick : true,
 		hideOnContentClick : false,

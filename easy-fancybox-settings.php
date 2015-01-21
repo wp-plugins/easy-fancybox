@@ -162,6 +162,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'title' => __('Color','easy-fancybox'),
 							'label_for' => 'fancybox_overlayColor',
 							'input' => 'text',
+							'sanitize_callback' => 'colorval',
 							'class' => 'small-text',
 							'default' => '',
 							'description' => __('Enter an HTML color value.','easy-fancybox') . ' <em>' . __('Default:','easy-fancybox')  . ' #777</em><br />' 
@@ -197,6 +198,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'hide' => true,
 							'title' => __('Background color','easy-fancybox'),
 							'input' => 'text',
+							'sanitize_callback' => 'colorval',
 							'status' => 'disabled',
 							'class' => 'small-text',
 							'default' => '',
@@ -207,6 +209,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'hide' => true,
 							'title' => __('Text color','easy-fancybox'),
 							'input' => 'text',
+							'sanitize_callback' => 'colorval',
 							'status' => 'disabled',
 							'class' => 'small-text',
 							'default' => '',
@@ -217,6 +220,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'hide' => true,
 							'title' => __('Title color','easy-fancybox'),
 							'input' => 'text',
+							'sanitize_callback' => 'colorval',
 							'class' => 'small-text',
 							'default' => '',
 							'description' => ''
@@ -226,6 +230,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'hide' => true,
 							'title' => __('Border color','easy-fancybox'),
 							'input' => 'text',
+							'sanitize_callback' => 'colorval',
 							'class' => 'small-text',
 							'default' => '',
 							'description' => '<em>' . __('Default:','easy-fancybox')  . ' #000 x #fff</em><br />' . __('Note:','easy-fancybox') . ' ' . __('Use RGBA notation for semi-transparent borders.','easy-fancybox') . ' <em>' . __('Example:','easy-fancybox') . ' rgba(10,10,30,0.7)</em><br />'

@@ -403,6 +403,7 @@ var easy_fancybox_handler = function(){';
 					<input type="checkbox" name="'.$args['id'].'" id="'.$args['id'].'" value="1" '.$checked.' '.$disabled.' /> '.$args['description'].'<br />';
 					break;
 				case 'text':
+				case 'color': // TODO make color picker available for color values but do NOT use type="color" because that does not allow empty fields!
 					if( !empty($args['label_for']) )
 						echo '<label for="'.$args['label_for'].'">'.$args['title'].'</label> ';
 					else
@@ -446,6 +447,10 @@ var easy_fancybox_handler = function(){';
 		return $links;
 	}
 
+	/***
+	 * Santize Callbacks 
+	 */
+
 	public static function intval($setting = '') {
 		if ($setting == '')
 			return '';
@@ -459,6 +464,20 @@ var easy_fancybox_handler = function(){';
 		}
 	
 		return ( $val != 0 ) ? $val.$prc : 0;
+	}
+
+	public static function colorval($setting = '') {
+		if ($setting == '')
+			return '';
+	
+		if (substr($setting, 0, 1) == '#')
+			if ( ctype_xdigit(substr($setting, 1)) )
+				return $setting;
+		
+		if (ctype_xdigit($setting))
+				return '#'.$setting;
+
+		return $setting;
 	}
 
 

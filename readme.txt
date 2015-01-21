@@ -495,10 +495,15 @@ Bugfix release.
 
 == Changelog ==
 
+TODO: optional remove scripts on certain pages
 TODO: optional disable for small sceen sizes
-TODO: move all script to footer and make that optional to for theme compat
+TODO: move all script to footer and make that optional too for theme compat
 TODO: make jQuery inclusion optional
 TODO: make jQuery 1.6- compat optional
+
+= 1.5.8 =
+* FIX: obj indefined in minified js
+* Color value sanitization
 
 = 1.5.7 =
 * FIX: Pro extension link update
