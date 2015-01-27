@@ -502,7 +502,7 @@ TODO: make jQuery inclusion optional
 TODO: make jQuery 1.6- compat optional
 
 = 1.5.8 =
-* FIX: obj indefined in minified js
+* FIX: obj undefined in minified js
 * Color value sanitization
 
 = 1.5.7 =

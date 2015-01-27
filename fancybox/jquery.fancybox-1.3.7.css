@@ -25,7 +25,7 @@
 	margin-left: -20px;
 	cursor: pointer;
 	overflow: hidden;
-	z-index:11104;
+	z-index: 111104;
 	display: none;
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
@@ -47,7 +47,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index:11100;
+	z-index: 111100;
 	display: none;
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
@@ -66,7 +66,7 @@
 	top: 0;
 	left: 0;
 	padding: 20px;
-	z-index:11101;
+	z-index: 111101;
 	outline: none;
 	display: none;
 	box-sizing: content-box;
@@ -92,7 +92,7 @@
 	outline: none;
 	position: relative;
 	overflow: hidden;
-	z-index:11102;
+	z-index: 111102;
 	border: 0px solid #fff;
 	background: #fff;
 	-moz-background-clip: padding; /* Firefox 3.6 */
@@ -107,7 +107,7 @@
 	width: 100%;
 	height: 100%;
 	background: transparent;
-	z-index:11101;
+	z-index: 111101;
 }
 
 #fancybox-close {
@@ -118,7 +118,7 @@
 	height: 30px;
 	background: transparent url('fancybox.png') -40px 0px;
 	cursor: pointer;
-	z-index:11103;
+	z-index: 111103;
 	display: none;
 }
 
@@ -148,7 +148,7 @@
 	border: none;
 	display: block;
 	-webkit-overflow-scrolling: touch;
-	z-index:0; /* z-index bug with -webkit-overflow-scrolling */
+	z-index: 0; /* z-index bug with -webkit-overflow-scrolling */
 }
 
 #fancybox-left, #fancybox-right {
@@ -159,7 +159,7 @@
 	cursor: pointer;
 	outline: none;
 	background: transparent url('blank.gif');
-	z-index:11102;
+	z-index: 111102;
 	display: none;
 }
 
@@ -189,7 +189,7 @@
 	height: 30px;
 	margin-top: -15px;
 	cursor: pointer;
-	z-index:11102;
+	z-index: 111102;
 	display: block;
 }
 
@@ -242,7 +242,7 @@
 	border: 0;
 	width: 20px;
 	height: 20px;
-	z-index:11001;
+	z-index: 111001;
 }
 
 #fancybox-bg-n {
@@ -306,7 +306,7 @@
 #fancybox-title {
 	font-family: Helvetica;
 	font-size: 12px;
-	z-index:11102;
+	z-index: 111102;
 }
 
 .fancybox-title-inside {
