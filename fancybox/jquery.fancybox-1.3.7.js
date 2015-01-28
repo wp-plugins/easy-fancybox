@@ -100,7 +100,7 @@
 			title = selectedOpts.title || (obj.nodeName ? $(obj).attr('title') : obj.title) || '';
 
 			if (obj.nodeName && !selectedOpts.orig) {
-				selectedOpts.orig = $(obj).children("img:first").length ? $(obj).children("img:first") : $(obj);
+				selectedOpts.orig = $(obj).find("img:first").length ? $(obj).find("img:first") : $(obj);
 			}
 
 			if (title === '' && selectedOpts.orig) {
