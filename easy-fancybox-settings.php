@@ -85,47 +85,6 @@ class easyFancyBox_Options extends easyFancyBox {
 						),
 					'description' => '<a href="https://premium.status301.net/downloads/easy-fancybox-pro/"><strong><em>' . __('For advanced options and support, please get the Easy FancyBox - Pro extension.','easy-fancybox') . '</strong></a>'
 					),
-				'Links' => array(
-					'title' => translate('Links'),
-					'input' => 'multiple',
-					'hide' => true,
-					'options' => array(
-						'attributeLimit' => array (
-							'id' => 'fancybox_attributeLimit',
-							'title' => __('Exclude','easy-fancybox'),
-							'label_for' => 'fancybox_attributeLimit',
-							'hide' => true,
-							'input' => 'select',
-							'options' => array(
-								'' => translate('None'),
-								':not(:empty)' => __('Empty (hidden) links','easy-fancybox'),
-								':has(img)' => __('Without thumbnail image','easy-fancybox')
-								),
-							'default' => '',
-							'description' => '<br />' 
-							),
-						'autoClick' => array (
-							'id' => 'fancybox_autoClick',
-							'title' => __('Open on page load','easy-fancybox'),
-							'label_for' => 'fancybox_autoClick',
-							'hide' => true,
-							'input' => 'select',
-							'options' => array(
-								'' => translate('None'),
-								'1' => __('Link with ID "fancybox-auto"','easy-fancybox'),
-								),
-							'default' => '1',
-							'description' => '<em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' 
-							),
-						'metaData' => array (
-							'id' => 'fancybox_metaData',
-							'hide' => true,
-							'input' => 'checkbox',
-							'default' =>  '',
-							'description' => __('Include the Metadata jQuery extension script to allow passing custom parameters via link class.','easy-fancybox')
-							)
-						)
-					),
 				'Overlay' => array (
 					'title' => __('Overlay','easy-fancybox'),
 					'input' => 'multiple',
@@ -411,11 +370,30 @@ class easyFancyBox_Options extends easyFancyBox {
 							'description' => __('Use jQuery pre-1.7 compatibility mode','easy-fancybox')
 							),
 */
-/*						'p3' => array (
+						'p3' => array (
 							'hide' => true,
 							'description' => '<br /><strong>' . __('Other','easy-fancybox') . '</strong><br />'
 							),
-*/
+						'autoClick' => array (
+							'id' => 'fancybox_autoClick',
+							'title' => __('Open on page load','easy-fancybox'),
+							'label_for' => 'fancybox_autoClick',
+							'hide' => true,
+							'input' => 'select',
+							'options' => array(
+								'' => translate('None'),
+								'1' => __('Link with ID "fancybox-auto"','easy-fancybox'),
+								),
+							'default' => '1',
+							'description' => '<em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' 
+							),
+						'metaData' => array (
+							'id' => 'fancybox_metaData',
+							'hide' => true,
+							'input' => 'checkbox',
+							'default' =>  '',
+							'description' => __('Include the Metadata jQuery extension script to allow passing custom parameters via link class.','easy-fancybox')
+							)
 						)
 					)
 				)
@@ -816,8 +794,8 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href*=".pdf"',
-					'description' => __('Autodetect','easy-fancybox') . '<br />'
+					'selector' => 'a[href*=".pdf"], area[href*=".pdf"], a[href*=".PDF"], area[href*=".PDF"]',
+					'description' => __('Autodetect','easy-fancybox')
 					),
 				'tag' => array (
 					'hide' => true,
@@ -828,7 +806,16 @@ class easyFancyBox_Options extends easyFancyBox {
 					'default' => 'fancybox-pdf'
 					),
 				'type' => array (
-					'default' => 'html'
+					'id' => 'fancybox_PDFclassType',
+					'title' => __('Embed with','easy-fancybox'),
+					'label_for' => 'fancybox_PDFclassType',
+					'input' => 'select',
+					'options' => array(
+						'html' => __('Object tag (plus fall-back link)','easy-fancybox'),
+						'iframe' => __('plain iFrame (let browser decide)','easy-fancybox')
+						),
+					'default' => 'html',
+					'description' => ' <em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br/><br/>'
 					),
 				'width' => array (
 					'id' => 'fancybox_PDFwidth',
@@ -862,10 +849,6 @@ class easyFancyBox_Options extends easyFancyBox {
 					'default' => '10',
 					'description' => '<br /><br />'
 					),
-/*				'autoScale' => array (
-					'noquotes' => true,
-					'default' => 'false'
-					),*/
 				'titleShow' => array (
 					'id' => 'fancybox_PDFtitleShow',
 					'input' => 'checkbox',
@@ -892,22 +875,6 @@ class easyFancyBox_Options extends easyFancyBox {
 					'default' => '1',
 					'description' => __('Allow title from thumbnail alt tag','easy-fancybox')
 					),
-/*				'transitionOut' => array (
-					'id' => 'fancybox_PDFtransitionOut',
-					'title' => __('Transition Out','easy-fancybox'),
-					'label_for' => 'fancybox_PDFtransitionOut',
-					'input' => 'select',
-					'class' => '',
-					'options' => array(
-						'fade' => __('Fade','easy-fancybox'),
-						//'elastic' => __('Elastic','easy-fancybox'),
-						'none' => translate('None')
-						),
-					'default' => 'fade',
-					),
-				'easingIn' => array (
-					'default' => 'swing'
-					),*/
 				'autoDimensions' => array (
 					'noquotes' => true,
 					'default' => 'false'
@@ -917,14 +884,10 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'onStart' => array ( 
 					'noquotes' => true,
-//					'default' => 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<embed src="\' + selectedArray[selectedIndex].href + \'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%" />\' }'
-//					'default' => 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<object data="\' + selectedArray[selectedIndex].href + \'#toolbar=1&navpanes=0&nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%"><param name="src" value="\' + selectedArray[selectedIndex].href + \'#toolbar=1&navpanes=0&nameddest=self&page=1&view=FitH,0&zoom=80,0,0" /><embed src="\' + selectedArray[selectedIndex].href + \'#toolbar=1&navpanes=0&nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%" /><a href="\' + selectedArray[selectedIndex].href + \'" style="display:block;font-size:18px;position:absolute;top:50%;width:100%;text-align:center">\' + jQuery(selectedArray[selectedIndex]).html() + \'</a></object>\' }'
-					'default' => 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<embed src="\' + selectedArray[selectedIndex].href + \'#toolbar=1&navpanes=0&nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%" />\' }'
+//					'default' => 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<embed src="\' + selectedArray[selectedIndex].href + \'#toolbar=1&navpanes=0&nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%" />\' }'
+					'default' => get_option('fancybox_PDFclassType','html') == 'iframe' ? '' : 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<object data="\' + selectedArray[selectedIndex].href + \'" type="application/pdf" height="100%" width="100%"><a href="\' + selectedArray[selectedIndex].href + \'" style="display:block;position:absolute;top:48%;width:100%;text-align:center">\' + jQuery(selectedArray[selectedIndex]).html() + \'</a></object>\' }'
+//					'default' => 'function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.content = \'<embed src="\' + selectedArray[selectedIndex].href + \'" type="application/pdf" height="100%" width="100%" />\' }'
 					),
-/*				'onClosed' => array ( 
-					'noquotes' => true,
-					'default' => 'function() { $("#fancybox-content").empty(); }'
-					)*/
  				)
 			),
 
@@ -941,7 +904,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href*=".swf"',
+					'selector' => 'a[href*=".swf"], area[href*=".swf"], a[href*=".SWF"], area[href*=".SWF"]',
 					'description' => __('Autodetect','easy-fancybox') . '<br />'
 					),
 				'tag' => array (
@@ -1035,7 +998,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href$=".svg"',
+					'selector' => 'a[href*=".svg"], area[href*=".svg"], a[href*=".SVG"], area[href*=".SVG"]',
 					'description' => __('Autodetect','easy-fancybox') . '<br />'
 					),
 				'tag' => array (
@@ -1130,18 +1093,8 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href*="youtube.com/watch"',
-					//'href-replace' => "return attr.replace(new RegExp('watch\\\?v=', 'i'), 'v/')",
-					'description' => __('Autodetect','easy-fancybox')
-					),
-				'autoAttributeAlt' => array (
-					'id' => 'fancybox_autoAttributeYoutubeShortURL',
-					'input' => 'checkbox',
-					'hide' => true,
-					'default' => '1',
-					'selector' => 'href*="youtu.be/"',
-					//'href-replace' => "return attr.replace(new RegExp('youtu.be', 'i'), 'www.youtube.com/v')",
-					'description' => __('Autodetect Short links','easy-fancybox') . '<br />'
+					'selector' => 'a[href*="youtu.be/"], area[href*="youtu.be/"], a[href*="youtube.com/watch"], area[href*="youtube.com/watch"]',
+					'description' => __('Autodetect','easy-fancybox') . '<br />'
 					),
 				'tag' => array (
 					'hide' => true,
@@ -1238,8 +1191,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href*="vimeo.com/"',
-					//'href-replace' => "return attr.replace(new RegExp('/([0-9])', 'i'), '/moogaloop.swf?clip_id=$1')",
+					'selector' => 'a[href*="vimeo.com/"], area[href*="vimeo.com/"]',
 					'description' => __('Autodetect','easy-fancybox') . '<br />'
 					),
 				'tag' => array (
@@ -1338,8 +1290,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'hide' => true,
 					'default' => '1',
-					'selector' => 'href*="dailymotion.com/"',
-					//'href-replace' => "return attr.replace(new RegExp('/video/', 'i'), '/swf/')",
+					'selector' => 'a[href*="dailymotion.com/"], area[href*="dailymotion.com/"]',
 					'description' => __('Autodetect','easy-fancybox') . '<br />'
 					),
 				'tag' => array (

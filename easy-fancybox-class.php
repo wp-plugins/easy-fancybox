@@ -91,19 +91,11 @@ var easy_fancybox_handler = function(){';
 			 * Auto-detection routines (2x)
 			 */
 			$autoAttribute = (isset($value['options']['autoAttribute'])) ? get_option( $value['options']['autoAttribute']['id'], $value['options']['autoAttribute']['default'] ) : "";
-			// update from previous version:
-			if($attributeLimit == '.not(\':empty\')')
-				$attributeLimit = ':not(:empty)';
-			elseif($attributeLimit == '.has(\'img\')')
-				$attributeLimit = ':has(img)';
 		
 			if(!empty($autoAttribute)) {
 				if(is_numeric($autoAttribute)) {
 					echo '
-	jQuery(\'a['.$value['options']['autoAttribute']['selector'].']:not(.nofancybox)'.$attributeLimit.', area['.$value['options']['autoAttribute']['selector'].']:not(.nofancybox)'.$attributeLimit.'\')';
-					//if ( isset($value['options']['autoAttribute']['href-replace']) )
-					//	echo '.attr(\'href\', function(index, attr){'.$value['options']['autoAttribute']['href-replace'].'})';
-					echo '.addClass(\''.$value['options']['class']['default'].'\');';
+	jQuery(\''.$value['options']['autoAttribute']['selector'].'\').not(\'.nofancybox\').addClass(\''.$value['options']['class']['default'].'\');';
 				} else {
 					// set selectors
 					$file_types = array_filter( explode( ' ', str_replace( ',', ' ', $autoAttribute ) ) );
@@ -115,7 +107,7 @@ var easy_fancybox_handler = function(){';
 							$type = '.'.$type;
 						if ($more>0)
 							echo ', ';
-						echo 'a['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox,.pin-it-button)'.$attributeLimit.', area['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox)'.$attributeLimit;
+						echo 'a['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox,.pin-it-button), area['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox)';
 						$more++;
 					}
 					echo '\';';
@@ -161,15 +153,6 @@ var easy_fancybox_handler = function(){';
 				}
 			}
 		
-			$autoAttributeAlt = ( isset($value['options']['autoAttributeAlt']) ) ? get_option( $value['options']['autoAttributeAlt']['id'], $value['options']['autoAttributeAlt']['default'] ) : "";
-			if(!empty($autoAttributeAlt) && is_numeric($autoAttributeAlt)) {
-				echo '
-	jQuery(\'a['.$value['options']['autoAttributeAlt']['selector'].']:not(.nofancybox)'.$attributeLimit.', area['.$value['options']['autoAttributeAlt']['selector'].']:not(.nofancybox)'.$attributeLimit.'\')';
-				//if (!empty($value['options']['autoAttributeAlt']['href-replace']))
-				//	echo '.attr(\'href\', function(index, attr){'.$value['options']['autoAttributeAlt']['href-replace']. '})';
-				echo '.addClass(\''.$value['options']['class']['default'].'\');';
-			}
-		
 			/*
 			 * Generate .fancybox() bind
 			 */
@@ -181,7 +164,7 @@ var easy_fancybox_handler = function(){';
 	jQuery(\'' . $value['options']['tag']['default']. '\')';
 
 			// use each() to allow different metadata values per instance; fix by Elron. Thanks!
-			if ( '1' == get_option(self::$options['Global']['options']['Links']['options']['metaData']['id'],self::$options['Global']['options']['Links']['options']['metaData']['default']) )
+			if ( '1' == get_option(self::$options['Global']['options']['Miscellaneous']['options']['metaData']['id'],self::$options['Global']['options']['Miscellaneous']['options']['metaData']['default']) )
 				echo '.each(function() { jQuery(this)';
 
 			echo '.fancybox( jQuery.extend({}, fb_opts, {';
@@ -207,7 +190,7 @@ var easy_fancybox_handler = function(){';
 			echo ' }) ';
 		
 			// use each() to allow different metadata values per instance; fix by Elron. Thanks!
-			if ( '1' == get_option(self::$options['Global']['options']['Links']['options']['metaData']['id'],self::$options['Global']['options']['Links']['options']['metaData']['default']) )		
+			if ( '1' == get_option(self::$options['Global']['options']['Miscellaneous']['options']['metaData']['id'],self::$options['Global']['options']['Miscellaneous']['options']['metaData']['default']) )		
 				echo ');} ';
 
 			echo ')'.$trigger.';';
@@ -517,8 +500,8 @@ var easy_fancybox_handler = function(){';
 			wp_register_script('jquery-mousewheel', EASY_FANCYBOX_PLUGINURL.'jquery.mousewheel.min.js', array('jquery'), MOUSEWHEEL_VERSION, true);
 		}
 		
-		// metadata in Link settings?
-		if ('1' == get_option( self::$options['Global']['options']['Links']['options']['metaData']['id'], self::$options['Global']['options']['Links']['options']['metaData']['default']) ) {
+		// metadata in Miscellaneous settings?
+		if ('1' == get_option( self::$options['Global']['options']['Miscellaneous']['options']['metaData']['id'], self::$options['Global']['options']['Miscellaneous']['options']['metaData']['default']) ) {
 			wp_deregister_script('jquery-metadata');
 			wp_register_script('jquery-metadata',EASY_FANCYBOX_PLUGINURL.'jquery.metadata.pack.js', array('jquery'), METADATA_VERSION, true);
 		}
