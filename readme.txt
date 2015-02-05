@@ -274,9 +274,9 @@ If you do'nt have *Auto-detect* checked under **SWF** on Settings > Media admin 
 
 = How do I show content with different sizes? =
 
-FancyBox tries to detect the size of the conten automatically but if it can not find a size, it will default to the settings for that particular content type as set on the Settings > Media page. 
+FancyBox tries to detect the size of the content automatically but if it can not find a size, it will default to the settings for that particular content type as set on the Settings > Media page. 
 
-You can manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. Make sure the option "Inlcude the Metadata jQuery extension script..." under FancyBox | Links on Settings > Media is enabled.
+The **[Pro extension](http://status301.net/easy-fancybox-pro-extension/)** provides an extra option to allow you to manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. Make sure the option "Inlcude the Metadata jQuery extension script..." under FancyBox | Links on Settings > Media is enabled.
 
 For example, a Flash movie with different size:
 
@@ -495,7 +495,7 @@ Bugfix release.
 
 == Changelog ==
 
-TODO: optional remove scripts on certain pages
+TODO PRO: optional remove scripts on certain pages
 TODO: optional disable for small sceen sizes
 TODO: move all script to footer and make that optional too for theme compat
 TODO: make jQuery inclusion optional
@@ -504,6 +504,7 @@ TODO: make jQuery 1.6- compat optional
 = 1.5.8 =
 * FIX: obj undefined in minified js
 * Color value sanitization
+* NEW: auto popup delay
 
 = 1.5.7 =
 * FIX: Pro extension link update

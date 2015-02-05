@@ -86,7 +86,7 @@ var easy_fancybox_handler = function(){';
 				continue;
 
 			echo '
-	/* ' . $key . ' */';
+	/* ' . $key . ' (within foreach!) */';
 			/*
 			 * Auto-detection routines (2x)
 			 */
@@ -156,9 +156,10 @@ var easy_fancybox_handler = function(){';
 			/*
 			 * Generate .fancybox() bind
 			 */
-			$trigger='';
+			
+			// prepare auto popup
 			if( $key == $autoClick )
-				$trigger = '.filter(\':first\').trigger(\'click\')';
+				$trigger = $value['options']['class']['default'];
 
 			echo '
 	jQuery(\'' . $value['options']['tag']['default']. '\')';
@@ -193,25 +194,35 @@ var easy_fancybox_handler = function(){';
 			if ( '1' == get_option(self::$options['Global']['options']['Miscellaneous']['options']['metaData']['id'],self::$options['Global']['options']['Miscellaneous']['options']['metaData']['default']) )		
 				echo ');} ';
 
-			echo ')'.$trigger.';';
+			echo ');';
 
 		}
 
+			echo '
+}
+var easy_fancybox_auto = function(){';
+
+		if ( empty($delayClick) ) $delayClick = '0';
+
 		switch( $autoClick ) {
 			case '':
-			default :
 				break;
 			case '1':
 				echo '
 	/* Auto-click */ 
-	jQuery(\'#fancybox-auto\').trigger(\'click\');';
+	setTimeout(function(){jQuery(\'#fancybox-auto\').trigger(\'click\')},'.$delayClick.');';
 				break;
 			case '99':
 				echo '
-	/* Auto-load */ 
-	jQuery(\'a[class*="fancybox"]\').filter(\':first\').trigger(\'click\');';
+	/* Auto-click */ 
+	setTimeout(function(){jQuery(\'a[class|="fancybox"]\').filter(\':first\').trigger(\'click\')},'.$delayClick.');';
 				break;
+			default :
+				if ( !empty($trigger) ) echo '
+	/* Auto-click */ 
+	setTimeout(function(){jQuery(\'a[class*="'.$trigger.'"]\').filter(\':first\').trigger(\'click\')},'.$delayClick.');';
 		}
+
 		echo '
 }
 /* ]]> */
@@ -532,10 +543,13 @@ var easy_fancybox_handler = function(){';
 		
 		// 'gform_post_render' for gForms content triggers an error... Why?
 		// 'post-load' is for Infinite Scroll by JetPack 
-		echo '
-<script type="text/javascript">
-jQuery(document).on(\'ready post-load\', easy_fancybox_handler );
-</script>
+		echo '<script type="text/javascript">';
+
+		echo apply_filters( 'easy_fancybox_onready_handler', 'jQuery(document).on(\'ready post-load\',easy_fancybox_handler);' );
+
+		echo apply_filters( 'easy_fancybox_onready_auto', 'jQuery(document).on(\'ready\',easy_fancybox_auto);' );
+		
+		echo '</script>
 ';
 	}
 	

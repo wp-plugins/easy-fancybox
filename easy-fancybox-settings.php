@@ -275,7 +275,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'title' => __('Opening speed','easy-fancybox'),
 							'label_for' => 'fancybox_speedIn',
 							'input' => 'number',
-							'step' => '1',
+							'step' => '100',
 							'min' => '0',
 							'max' => '6000',
 							'sanitize_callback' => 'intval',
@@ -287,7 +287,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'title' => __('Closing speed','easy-fancybox'),
 							'label_for' => 'fancybox_speedOut',
 							'input' => 'number',
-							'step' => '1',
+							'step' => '100',
 							'min' => '0',
 							'max' => '6000',
 							'sanitize_callback' => 'intval',
@@ -303,9 +303,54 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'multiple',
 					'hide' => true,
 					'options' => array(
+						'p0' => array (
+							'hide' => true,
+							'description' => '<strong>' . __('Auto popup','easy-fancybox') . '</strong><br />'
+							),
+						'autoClick' => array (
+							'id' => 'fancybox_autoClick',
+							'title' => __('Open on page load','easy-fancybox'),
+							'label_for' => 'fancybox_autoClick',
+							'hide' => true,
+							'input' => 'select',
+							'options' => array(
+								'' => translate('None'),
+								'1' => __('Link with ID "fancybox-auto"','easy-fancybox'),
+								),
+							'default' => '1',
+							'description' => '<em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' 
+							),
+						'delayClick' => array (
+							'id' => 'fancybox_delayClick',
+							'title' => __('Delay in milliseconds','easy-fancybox'),
+							'label_for' => 'fancybox_delayClick',
+							'hide' => true,
+							'input' => 'number',
+							'step' => '100',
+							'min' => '0',
+							'max' => '',
+							'sanitize_callback' => 'intval',
+							'class' => 'small-text',
+							'default' => '1000',
+							'description' => ' <em>' . __('Default:','easy-fancybox')  . ' 1000</em><br />'
+							),
+						'jqCookie' => array (
+							'id' => '',
+							'title' => __('Hide popup after first visit?','easy-fancybox'),
+							'hide' => true,
+							'input' => 'select',
+							'status' => 'disabled',
+							'default' =>  '0',
+							'sanitize_callback' => 'intval',
+							'options' => array(
+								'0' => translate('No')
+								),
+							'translations' => __('1 Day','easy-fancybox') . __('1 Week','easy-fancybox') . __('1 Month','easy-fancybox') . __('1 Year','easy-fancybox'),
+							'description' => ' <em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('Make available &raquo;','easy-fancybox') . '</a></em>'
+							),
 						'p1' => array (
 							'hide' => true,
-							'description' => '<strong>' . __('Browser & device compatibility','easy-fancybox') . '</strong><br />'
+							'description' => '<br /><strong>' . __('Browser & device compatibility','easy-fancybox') . '</strong><br />'
 							),
 /*						'minViewportWidth' => array (
 							'id' => 'fancybox_minViewportWidth',
@@ -362,8 +407,8 @@ class easyFancyBox_Options extends easyFancyBox {
 							'default' => '',
 							'description' => __('Do not include standard WordPress jQuery library','easy-fancybox')
 							),
-						'compatjQuery' => array (
-							'id' => 'fancybox_compatJquery',
+						'jqCompat' => array (
+							'id' => 'fancybox_jqCompat',
 							'input' => 'checkbox',
 							'hide' => true,
 							'default' => '',
@@ -374,25 +419,13 @@ class easyFancyBox_Options extends easyFancyBox {
 							'hide' => true,
 							'description' => '<br /><strong>' . __('Other','easy-fancybox') . '</strong><br />'
 							),
-						'autoClick' => array (
-							'id' => 'fancybox_autoClick',
-							'title' => __('Open on page load','easy-fancybox'),
-							'label_for' => 'fancybox_autoClick',
-							'hide' => true,
-							'input' => 'select',
-							'options' => array(
-								'' => translate('None'),
-								'1' => __('Link with ID "fancybox-auto"','easy-fancybox'),
-								),
-							'default' => '1',
-							'description' => '<em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' 
-							),
 						'metaData' => array (
 							'id' => 'fancybox_metaData',
 							'hide' => true,
 							'input' => 'checkbox',
+							'status' => get_option('fancybox_metaData') ? '' : 'disabled',
 							'default' =>  '',
-							'description' => __('Include the Metadata jQuery extension script to allow passing custom parameters via link class.','easy-fancybox')
+							'description' => get_option('fancybox_metaData') ? __('Include the Metadata jQuery extension script to allow passing custom parameters via link class.','easy-fancybox') : __('Include the Metadata jQuery extension script to allow passing custom parameters via link class.','easy-fancybox') . '. <em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('Make available &raquo;','easy-fancybox') . '</a></em>'
 							)
 						)
 					)
@@ -812,7 +845,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'select',
 					'options' => array(
 						'html' => __('Object tag (plus fall-back link)','easy-fancybox'),
-						'iframe' => __('plain iFrame (let browser decide)','easy-fancybox')
+						'iframe' => __('iFrame tag (let browser decide)','easy-fancybox')
 						),
 					'default' => 'html',
 					'description' => ' <em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br/><br/>'
