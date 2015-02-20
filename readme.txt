@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Easy%20FancyBox&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: fancybox, lightbox, gallery, image, photo, video, flash, nextgen, overlay, youtube, vimeo, dailymotion, pdf, svg, iframe, swf, jquery
 Requires at least: 3.3
-Tested up to: 4.0
+Tested up to: 4.2
 Stable tag: 1.5.7
 
 Easily enable the FancyBox jQuery extension on just about all media links. Multi-Site compatible. Supports iFrame and Flash movies.
@@ -352,7 +352,7 @@ NOTE 2: If you find that the inline contect shown in FancyBox is styled very dif
 
 = Can I display a contact form in FancyBox? =
 
-Yes. There are several methods imaginable but the easiest would be to use the Inline method. First go to your Settings > Media admin page and enable the Inline Content option. Next, go back to edit your post or page in the HTML editor tab. The inline content can be a shortcode like in this example using Contact Forms 7 and Easy FancyBox:
+Yes. There are several methods imaginable but the easiest would be to use the Inline method. First go to your Settings > Media admin page and enable the Inline Content option. Next, go back to edit your post or page in the Text editor tab. The inline content can be a shortcode like in this example using Contact Forms 7 and Easy FancyBox:
 
 `
 <a href="#contact_form_pop" class="fancybox-inline">Contact Us</a>
