@@ -728,7 +728,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					'input' => 'checkbox',
 					'noquotes' => true,
 					'default' => '1',
-					'description' => __('Try to adjust size to inline/html content. If unchecked or size cannot be determined, the default dimensions will be used.','easy-fancybox') . ''
+					'description' => __('Try to adjust size to inline/html content. If unchecked the default dimensions will be used.','easy-fancybox') . ''
 					),
 				'scrolling' => array (
 					'id' => 'fancybox_InlineScrolling',
