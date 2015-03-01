@@ -42,19 +42,9 @@ define( 'MOUSEWHEEL_VERSION', '3.1.12' );
 define( 'EASING_VERSION', '1.3' );
 define( 'METADATA_VERSION', '2.1' );
 define( 'EASY_FANCYBOX_PLUGINBASENAME', plugin_basename(__FILE__) );
-define( 'EASY_FANCYBOX_PLUGINFILE', basename(__FILE__) );
-
-// Check if easy-fancybox.php is moved one dir up like in WPMU's /mu-plugins/
-// or if plugins_url() returns the main plugins dir location as it does on 
-// a Debian repository install.
-// NOTE: WP_PLUGIN_URL causes problems when installed in /mu-plugins/
-if( !stristr( plugins_url( '', __FILE__ ), '/easy-fancybox' ) )
-	define( 'EASY_FANCYBOX_SUBDIR', 'easy-fancybox/' );
-else
-	define( 'EASY_FANCYBOX_SUBDIR', '' );
-
-define( 'EASY_FANCYBOX_PLUGINDIR', dirname(__FILE__) . '/' . EASY_FANCYBOX_SUBDIR );
-define( 'EASY_FANCYBOX_PLUGINURL', plugins_url( '/' . EASY_FANCYBOX_SUBDIR, __FILE__ ) );
+//define( 'EASY_FANCYBOX_PLUGINFILE', basename(__FILE__) );
+define( 'EASY_FANCYBOX_PLUGINDIR', dirname(__FILE__) . '/' );
+define( 'EASY_FANCYBOX_PLUGINURL', plugins_url( '/', __FILE__ ) );
 
 
 /**************

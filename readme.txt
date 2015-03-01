@@ -88,7 +88,7 @@ Not happy with the default settings? Check out the new options under **Settings 
 
 = Wordpress MU / WordPress 3+ in Multi Site mode =
 
-Same as above but do a **Network Activate** to activate FancyBox image overlays on each site on your network. No database tables are created or manipulated and no activation hook needs to be run for it to function with default settings. The plugin can also work from the **/mu-plugins/** folder where it runs quietly in the background without bothering any blog owner with new options pages or the need for special knowledge about FancyBox. Just upload the complete package content to /mu-plugins/ and move the file fancybox.php from the new /mu-plugins/easy-fancybox/ to /mu-plugins/.
+Same as above but do a **Network Activate** to activate FancyBox image overlays on each site on your network. No database tables are created or manipulated and no activation hook needs to be run for it to function with default settings.
 
 
 == Frequently Asked Questions ==
@@ -500,6 +500,7 @@ TODO: make jQuery 1.6- compat optional
 * FIX: obj undefined in minified js
 * Color value sanitization
 * NEW: auto popup delay
+* Dropped mu-plugins support
 
 = 1.5.7 =
 * FIX: Pro extension link update
