@@ -10,6 +10,8 @@ class easyFancyBox {
 
 	public static $options = array();
 	
+	public static $compat_pro_min = '1.5.3-dev2';
+	
 	public static $do_compat_warning = false;
 
 	/**********************
@@ -344,6 +346,8 @@ var easy_fancybox_auto = function(){';
 	// add our FancyBox Media Settings Section on Settings > Media admin page
 	public static function settings_section() {
 		echo '<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Easy%20FancyBox&item_number='.EASY_FANCYBOX_VERSION.'&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR" title="'.__('Donate to keep the Easy FancyBox plugin development going!','easy-fancybox').'"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" style="border:none;float:right;margin:5px 0 0 10px" alt="'.__('Donate to keep the Easy FancyBox plugin development going!','easy-fancybox').'" width="92" height="26" /></a>'.sprintf(__('The options in this section are provided by the plugin %s and determine the <strong>Media Lightbox</strong> overlay appearance and behaviour controlled by %s.','easy-fancybox'),'<strong><a href="http://status301.net/wordpress-plugins/easy-fancybox/">'.__('Easy FancyBox','easy-fancybox').'</a></strong>','<strong><a href="http://fancybox.net/">'.__('FancyBox','easy-fancybox').'</a></strong>').'</p><p>'.__('First enable each sub-section that you need. Then save and come back to adjust its specific settings.','easy-fancybox').' '.__('Note: Each additional sub-section and features like <em>Auto-detection</em>, <em>Elastic transitions</em> and all <em>Easing effects</em> (except Swing) will have some extra impact on client-side page speed. Enable only those sub-sections and options that you actually need on your site.','easy-fancybox').' '.__('Some setting like Transition options are unavailable for SWF video, PDF and iFrame content to ensure browser compatibility and readability.','easy-fancybox').'</p>';
+
+		// Pro extension version compatibility message
 		if ( self::$do_compat_warning ) {
 			echo '<p class="update-nag">';
 			_e('Warning: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
@@ -587,7 +591,8 @@ var easy_fancybox_auto = function(){';
 			add_user_meta($current_user->ID, 'easy_fancybox_ignore_notice', 'true', true);
 		}
 
-		if ( class_exists('easyFancyBox_Advanced') && ( !defined('easyFancyBox_Advanced::VERSION') || version_compare(easyFancyBox_Advanced::VERSION,'1.5.3-dev2','<') ) )
+		if ( class_exists('easyFancyBox_Advanced') 
+				&& ( !defined('easyFancyBox_Advanced::VERSION') || version_compare(easyFancyBox_Advanced::VERSION, self::$compat_pro_min, '<') ) )
 			self::$do_compat_warning = true;
 	}
 
