@@ -29,7 +29,7 @@ After activation, all links to **JPG, GIF and PNG images** are automatically ope
 - Auto-popup on page load
 - links inside Gravity Forms in ajax mode
 
-For **advanced options** and **priority support**, there is a **[Pro extension](http://status301.net/easy-fancybox-pro-extension/)** available.
+For **advanced options** and **priority support**, there is a **[Pro extension](http://premium.status301.net/downloads/easy-fancybox-pro/)** available.
 
 See [Screenshots](http://wordpress.org/plugins/easy-fancybox/screenshots/) for an impression on how images and YouTube movies will be presented on your site as soon as you have installed and (network) activated this simple plugin.
 
@@ -143,7 +143,7 @@ Tweak the value 641 to target other screen sizes.
 
 = Can I make a slideshow from my gallery? =
 
-In the [Pro extension](http://status301.net/easy-fancybox-pro-extension/), there is an Advanced option called "Gallery Auto-rotation" for that.
+In the [Pro extension](http://premium.status301.net/downloads/easy-fancybox-pro/), there is an Advanced option called "Gallery Auto-rotation" for that.
 
 
 = Can I exclude images or other links from auto-attribution? =
@@ -276,7 +276,7 @@ If you do'nt have *Auto-detect* checked under **SWF** on Settings > Media admin 
 
 FancyBox tries to detect the size of the content automatically but if it can not find a size, it will default to the settings for that particular content type as set on the Settings > Media page. 
 
-The **[Pro extension](http://status301.net/easy-fancybox-pro-extension/)** provides an extra option to allow you to manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. Make sure the option "Inlcude the Metadata jQuery extension script..." under FancyBox | Links on Settings > Media is enabled.
+The **[Pro extension](http://premium.status301.net/downloads/easy-fancybox-pro/)** provides an extra option to allow you to manually override this by defining the width and height wrapped in curly brases in the class attribute of the link itself. Make sure the option "Inlcude the Metadata jQuery extension script..." under FancyBox | Links on Settings > Media is enabled.
 
 For example, a Flash movie with different size:
 
@@ -500,6 +500,7 @@ TODO: make jQuery 1.6- compat optional
 * FIX: obj undefined in minified js
 * Color value sanitization
 * NEW: auto popup delay
+* NEW: pro extension version compatibility check routine
 * Dropped mu-plugins support
 
 = 1.5.7 =

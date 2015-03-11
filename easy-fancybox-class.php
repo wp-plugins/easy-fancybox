@@ -10,6 +10,7 @@ class easyFancyBox {
 
 	public static $options = array();
 	
+	public static $do_compat_warning = false;
 
 	/**********************
 	   MAIN SCRIPT OUTPUT
@@ -310,9 +311,9 @@ var easy_fancybox_auto = function(){';
 	public static function register_settings($args = array()) {
 		foreach ($args as $key => $value) {
 			// check to see if the section is enabled, else skip to next
-			if ( array_key_exists($key, self::$options['Global']['options']['Enable']['options']) && !get_option( self::$options['Global']['options']['Enable']['options'][$key]['id'], self::$options['Global']['options']['Enable']['options'][$key]['default']) )
+			if ( !isset($value['input']) || array_key_exists($key, self::$options['Global']['options']['Enable']['options']) && !get_option( self::$options['Global']['options']['Enable']['options'][$key]['id'], self::$options['Global']['options']['Enable']['options'][$key]['default']) )
 				continue;
-			
+							
 			switch($value['input']) {
 				case 'deep':
 					// go deeper by looping back on itself 
@@ -343,6 +344,17 @@ var easy_fancybox_auto = function(){';
 	// add our FancyBox Media Settings Section on Settings > Media admin page
 	public static function settings_section() {
 		echo '<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Easy%20FancyBox&item_number='.EASY_FANCYBOX_VERSION.'&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR" title="'.__('Donate to keep the Easy FancyBox plugin development going!','easy-fancybox').'"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" style="border:none;float:right;margin:5px 0 0 10px" alt="'.__('Donate to keep the Easy FancyBox plugin development going!','easy-fancybox').'" width="92" height="26" /></a>'.sprintf(__('The options in this section are provided by the plugin %s and determine the <strong>Media Lightbox</strong> overlay appearance and behaviour controlled by %s.','easy-fancybox'),'<strong><a href="http://status301.net/wordpress-plugins/easy-fancybox/">'.__('Easy FancyBox','easy-fancybox').'</a></strong>','<strong><a href="http://fancybox.net/">'.__('FancyBox','easy-fancybox').'</a></strong>').'</p><p>'.__('First enable each sub-section that you need. Then save and come back to adjust its specific settings.','easy-fancybox').' '.__('Note: Each additional sub-section and features like <em>Auto-detection</em>, <em>Elastic transitions</em> and all <em>Easing effects</em> (except Swing) will have some extra impact on client-side page speed. Enable only those sub-sections and options that you actually need on your site.','easy-fancybox').' '.__('Some setting like Transition options are unavailable for SWF video, PDF and iFrame content to ensure browser compatibility and readability.','easy-fancybox').'</p>';
+		if ( self::$do_compat_warning ) {
+			echo '<p class="update-nag">';
+			_e('Warning: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
+			echo ' ';
+			if ( current_user_can( 'install_plugins' ) )
+				printf(__('Please <a href="%1$s" target="_blank">download and install the latest Pro version</a>.','easy-fancybox'), 'https://premium.status301.net/account/');
+			else
+				_e('Please contact your web site administrator.','easy-fancybox');		
+			echo '</p>';
+		}
+
 	}
 
 	// add our FancyBox Media Settings Fields
@@ -566,6 +578,34 @@ var easy_fancybox_auto = function(){';
 	
 		// TODO : fix?? media_upload_max_image_resize() does not exist anymore...
 		//add_action( 'pre-upload-ui', 'media_upload_max_image_resize' );
+
+		/* Dismissable notice */
+		/* If user clicks to ignore the notice, add that to their user meta */
+		global $current_user;
+
+		if ( isset($_GET['easy_fancybox_ignore_notice']) && '1' == $_GET['easy_fancybox_ignore_notice'] ) {
+			add_user_meta($current_user->ID, 'easy_fancybox_ignore_notice', 'true', true);
+		}
+
+		if ( class_exists('easyFancyBox_Advanced') && ( !defined('easyFancyBox_Advanced::VERSION') || version_compare(easyFancyBox_Advanced::VERSION,'1.5.3-dev2','<') ) )
+			self::$do_compat_warning = true;
+	}
+
+	public static function admin_notice() {
+		global $current_user ;
+
+		/* Nag Message */
+		if ( self::$do_compat_warning && current_user_can( 'install_plugins' ) && !get_user_meta($current_user->ID, 'easy_fancybox_ignore_notice') ) {
+			echo '<div class="update-nag"><p>';
+			//echo '<a href="?easy_fancybox_ignore_notice=1" title="' . __('Hide message','easy-fancybox') . '" style="display:block;float:right">X</a>';
+			_e('Warning: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
+			echo '<br/>';
+			printf(__('Please <a href="%1$s" target="_blank">download and install the latest Pro version</a>.','easy-fancybox'), 'https://premium.status301.net/account/');
+			echo ' ';
+			printf(__('Or you can ignore and <a href="%1$s">hide this message</a>.','easy-fancybox'), '?easy_fancybox_ignore_notice=1');
+			echo '</p></div>';
+		}
+
 	}
 
 	// Hack to fix missing wmode in Youtube oEmbed code based on David C's code in the comments on
@@ -663,6 +703,7 @@ var easy_fancybox_auto = function(){';
 		add_action('plugins_loaded', array(__CLASS__, 'textdomain'));
 
 		add_action('admin_init', array(__CLASS__, 'admin_init'));
+		add_action('admin_notices', array(__CLASS__, 'admin_notice'));
 
 		add_action('init', array(__CLASS__, 'init'));
 		add_action('wp_enqueue_scripts', array(__CLASS__, 'enqueue_styles'), 999);
