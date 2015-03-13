@@ -352,7 +352,7 @@ NOTE 2: If you find that the inline contect shown in FancyBox is styled very dif
 
 = Can I display a contact form in FancyBox? =
 
-Yes. There are several methods imaginable but the easiest would be to use the Inline method. First go to your Settings > Media admin page and enable the Inline Content option. Next, go back to edit your post or page in the HTML editor tab. The inline content can be a shortcode like in this example using Contact Forms 7 and Easy FancyBox:
+Yes. There are several methods imaginable but the easiest would be to use the Inline method. First go to your Settings > Media admin page and enable the Inline Content option. Next, go back to edit your post or page in the Text editor tab. The inline content can be a shortcode like in this example using Contact Forms 7 and Easy FancyBox:
 
 `
 <a href="#contact_form_pop" class="fancybox-inline">Contact Us</a>
