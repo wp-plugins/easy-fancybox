@@ -44,9 +44,9 @@ Visit [FancyBox](http://fancybox.net/) for more information, examples and the Fa
 
 = Translators =
 
-- **Croatian** Ivan Capan (version 1.5.6)
-- **Czech** *  Eldenroot (version 1.5.5)
-- **Dutch** *  R.A. van Hagen, http://status301.net (version 1.5.6)
+- **Croatian** * Ivan Capan (version 1.5.6)
+- **Czech** * Eldenroot (version 1.5.5)
+- **Dutch** * R.A. van Hagen, http://status301.net (version 1.5.6)
 - **French** * Emmanuel Maillard (version 1.5.5)
 - **Gujarati** * Apoto Team, http://www.apoto.com (version 1.5.0)
 - **Hindi** * Outshine Solutions, http://outshinesolutions.com (version 1.3.4.9)
@@ -55,8 +55,8 @@ Visit [FancyBox](http://fancybox.net/) for more information, examples and the Fa
 - **Persian** * Ali Akbar Kaviani, http://www.wiki10.net (version 1.5.2)
 - **Polish** * Kamil Szymański (version 1.3.4.9)
 - **Romanian** * Web Geek Sciense, http://webhostinggeeks.com/ (version 1.3.4.9)
-- **Serbo-Croatian** Andrijana Nikolic, http://webhostinggeeks.com/wordpresshosting.html (version 1.5.2) + translation of this page on http://science.webhostinggeeks.com/easy-fancybox
-- **Slovak** Jan Fajcak, http://fajo.name/ (version: 1.5.7)
+- **Serbo-Croatian** * Andrijana Nikolic, http://webhostinggeeks.com/wordpresshosting.html (version 1.5.2) + translation of this page on http://science.webhostinggeeks.com/easy-fancybox
+- **Slovak** * Jan Fajcak, http://fajo.name/ (version: 1.5.7)
 - **Spanish** * David Pérez, http://www.closemarketing.es (version 1.3.4.9)
 - **Turkish** * Hakan Er, http://hakanertr.wordpress.com/ (version: 1.5.2)
 - **Ukrainian** * Cmd Software, http://www.cmd-soft.com (version: 1.3.4.9)
