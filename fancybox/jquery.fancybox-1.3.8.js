@@ -18,6 +18,7 @@
  * Removed/replaced non-HTML5 attributes
  * Added parameter allowfullscreen for iframe, RavanH ravanhagen@gmail.com
  * Line 309, 714: patches for better centering on ipad etc.
+ * Line 588: added support for tab key gallery browsing
  * Line 645: Check type = image for mousewheel
  * Line 820: qouted attribute selector, RavanH ravanhagen@gmail.com 
  * Line 41, 622 and 1125: added isTouch variable and autoResize parameter, RavanH ravanhagen@gmail.com 
@@ -581,10 +582,12 @@
 					if (e.keyCode == 27 && currentOpts.enableEscapeButton) {
 						e.preventDefault();
 						$.fancybox.close();
-
 					} else if ((e.keyCode == 37 || e.keyCode == 39) && currentOpts.enableKeyboardNav && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'SELECT') {
 						e.preventDefault();
 						$.fancybox[ e.keyCode == 37 ? 'prev' : 'next']();
+					} else if ((e.keyCode == 9) && currentOpts.enableKeyboardNav && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'SELECT') {
+						e.preventDefault();
+						$.fancybox[ e.shiftKey ? 'prev' : 'next']();
 					}
 				});
 			}
@@ -669,15 +672,13 @@
 		},
 
 		_preload_images = function() {
-			var href,
-				obj,
+			var obj,
 				objNext;
 
 			if ((currentArray.length -1) > currentIndex) {
 				obj = currentArray[ currentIndex + 1 ];
-				href = obj.href;
 
-				if (typeof href !== 'undefined' && (href.match(imgRegExp) || $(obj).hasClass("image")) ) {
+				if (typeof href !== 'undefined' && (obj.href.match(imgRegExp) || $(obj).hasClass("image")) ) {
 					objNext = new Image();
 					objNext.src = href;
 				}
@@ -685,9 +686,8 @@
 
 			if (currentIndex > 0) {
 				obj = currentArray[ currentIndex - 1 ];
-				href = obj.href;
 
-				if (typeof href !== 'undefined' && (href.match(imgRegExp) || $(obj).hasClass("image")) ) {
+				if (typeof href !== 'undefined' && (obj.href.match(imgRegExp) || $(obj).hasClass("image")) ) {
 					objNext = new Image();
 					objNext.src = href;
 				}
