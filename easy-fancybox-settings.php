@@ -442,7 +442,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox, area.fancybox, li.fancybox a:not(li.nofancybox a)'
+					'default' => 'a.fancybox, area.fancybox, li.fancybox a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -832,7 +832,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-pdf, area.fancybox-pdf, li.fancybox-pdf a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-pdf, area.fancybox-pdf, li.fancybox-pdf a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -942,7 +942,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-swf, area.fancybox-swf, li.fancybox-swf a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-swf, area.fancybox-swf, li.fancybox-swf a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -1036,7 +1036,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-svg, area.fancybox-svg, li.fancybox-svg a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-svg, area.fancybox-svg, li.fancybox-svg a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -1131,7 +1131,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-youtube, area.fancybox-youtube, li.fancybox-youtube a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-youtube, area.fancybox-youtube, li.fancybox-youtube a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -1229,7 +1229,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-vimeo, area.fancybox-vimeo, li.fancybox-vimeo a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-vimeo, area.fancybox-vimeo, li.fancybox-vimeo a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,
@@ -1328,7 +1328,7 @@ class easyFancyBox_Options extends easyFancyBox {
 					),
 				'tag' => array (
 					'hide' => true,
-					'default' => 'a.fancybox-dailymotion, area.fancybox-dailymotion, li.fancybox-dailymotion a:not(li.nofancybox a)'
+					'default' => 'a.fancybox-dailymotion, area.fancybox-dailymotion, li.fancybox-dailymotion a:not(li.nolightbox a)'
 					),
 				'class' => array (
 					'hide' => true,

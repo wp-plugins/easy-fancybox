@@ -148,9 +148,9 @@ In the [Pro extension](http://premium.status301.net/downloads/easy-fancybox-pro/
 
 = Can I exclude images or other links from auto-attribution? =
 
-Yes. All links with class **nofancybox** that would normally get auto-enabled, will be excluded from opening in a FancyBox overlay.
+Yes. All links with class **nolightbox** that would normally get auto-enabled, will be excluded from opening in a FancyBox overlay.
 
-`<a href="url/to/fullimg.jpg" class="nofancybox"><img src="url/to/thumbnail.jpg" /></a>`
+`<a href="url/to/fullimg.jpg" class="nolightbox"><img src="url/to/thumbnail.jpg" /></a>`
 
 
 = Can NextGEN Gallery work with Easy FancyBox ? =
@@ -551,7 +551,7 @@ TODO: make jQuery 1.6- compat optional
 * Dynamic stylesheet response headers to allow browser caching
 * Minified version of jquery.metadata.js 
 * Auto-detect on image map areas
-* nofancybox class for menu items
+* nolightbox class for menu items
 * SECURITY: Settings sanitization
 * BUGFIX: load_textdomain firing after the main settings array is loaded, leaving text strings in it untranslated.
 * BUGFIX: missing signs in Youtube url regular expression
@@ -589,7 +589,7 @@ TODO: make jQuery 1.6- compat optional
 * Links with id **fancybox-auto** will be triggered on page load
 * Anything with class **fancybox-hidden"** will be hidden
 * Support for menu items in iframe
-* Added class **nofancybox** for exclusion when auto-enabling
+* Added class **nolightbox** for exclusion when auto-enabling
 
 = 1.3.4.5 =
 * FancyBox script version 1.3.4 (2010/11/11 - http://fancybox.net/changelog/)

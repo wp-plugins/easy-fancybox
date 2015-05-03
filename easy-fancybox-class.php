@@ -98,7 +98,7 @@ var easy_fancybox_handler = function(){';
 			if(!empty($autoAttribute)) {
 				if(is_numeric($autoAttribute)) {
 					echo '
-	jQuery(\''.$value['options']['autoAttribute']['selector'].'\').not(\'.nofancybox\').addClass(\''.$value['options']['class']['default'].'\');';
+	jQuery(\''.$value['options']['autoAttribute']['selector'].'\').not(\'.nolightbox\').addClass(\''.$value['options']['class']['default'].'\');';
 				} else {
 					// set selectors
 					$file_types = array_filter( explode( ' ', str_replace( ',', ' ', $autoAttribute ) ) );
@@ -110,7 +110,7 @@ var easy_fancybox_handler = function(){';
 							$type = '.'.$type;
 						if ($more>0)
 							echo ', ';
-						echo 'a['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox,.pin-it-button), area['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nofancybox)';
+						echo 'a['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nolightbox,.pin-it-button), area['.$value['options']['autoAttribute']['selector'].'"'.$type.'"]:not(.nolightbox)';
 						$more++;
 					}
 					echo '\';';
@@ -560,7 +560,8 @@ var easy_fancybox_auto = function(){';
 		
 		// 'gform_post_render' for gForms content triggers an error... Why?
 		// 'post-load' is for Infinite Scroll by JetPack 
-		echo '<script type="text/javascript">';
+		echo '<script type="text/javascript">
+jQuery(document).on(\'ready post-load\', function(){ jQuery(\'.nofancybox\').removeClass(\'nofancybox\').addClass(\'nolightbox\'); });';
 
 		echo apply_filters( 'easy_fancybox_onready_handler', 'jQuery(document).on(\'ready post-load\',easy_fancybox_handler);' );
 
