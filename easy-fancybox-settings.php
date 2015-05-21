@@ -589,7 +589,7 @@ class easyFancyBox_Options extends easyFancyBox {
 						'2' => __('All in one gallery','easy-fancybox')
 						),
 					'default' => '1',
-					'description' => '<em><a href="hhttps://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' . __('Note:','easy-fancybox') . ' ' . __('When disabled, you can use the rel attribute to manually group image links together.','easy-fancybox') . '<br /><br />'
+					'description' => '<em><a href="https://premium.status301.net/downloads/easy-fancybox-pro/">' . __('More options &raquo;','easy-fancybox') . '</a></em><br />' . __('Note:','easy-fancybox') . ' ' . __('When disabled, you can use the rel attribute to manually group image links together.','easy-fancybox') . '<br /><br />'
 					),
 				'showNavArrows' => array (
 					'id' => 'fancybox_showNavArrows',
