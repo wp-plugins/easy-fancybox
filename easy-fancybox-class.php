@@ -601,11 +601,11 @@ jQuery(document).on(\'ready post-load\', function(){ jQuery(\'.nofancybox\').rem
 	public static function admin_notice() {
 		global $current_user ;
 
-		/* Nag Message */
+		/* Version Nag */
 		if ( self::$do_compat_warning && current_user_can( 'install_plugins' ) && !get_user_meta($current_user->ID, 'easy_fancybox_ignore_notice') ) {
 			echo '<div class="update-nag"><p>';
 			//echo '<a href="?easy_fancybox_ignore_notice=1" title="' . __('Hide message','easy-fancybox') . '" style="display:block;float:right">X</a>';
-			_e('Warning: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
+			_e('Notice: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
 			echo '<br/>';
 			printf(__('Please <a href="%1$s" target="_blank">download and install the latest Pro version</a>.','easy-fancybox'), 'https://premium.status301.net/account/');
 			echo ' ';
