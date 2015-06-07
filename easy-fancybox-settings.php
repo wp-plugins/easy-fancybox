@@ -242,7 +242,20 @@ class easyFancyBox_Options extends easyFancyBox {
 							'sanitize_callback' => 'intval',
 							'class' => 'small-text',
 							'default' => '',
-							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 560 x 340 x 10</em><br />' . __('If content size is not set or cannot be determined automatically, these default dimensions will be used.','easy-fancybox') . '<br />'
+							'description' => ''
+							),
+						'margin' => array (
+							'id' => 'fancybox_margin',
+							'title' => __('Margin','easy-fancybox'),
+							'label_for' => 'fancybox_margin',
+							'input' => 'number',
+							'step' => '1',
+							'min' => '20',
+							'max' => '60',
+							'sanitize_callback' => 'intval',
+							'class' => 'small-text',
+							'default' => '',
+							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 560 x 340 x 10 x 40</em><br />' . __('If content size is not set or cannot be determined automatically, these default dimensions will be used.','easy-fancybox') . '<br />'
 							),
 
 						'p2' => array (

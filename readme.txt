@@ -388,7 +388,7 @@ If you are on an older version of WordPress or if you cannot use WP's Menus, you
 
 = Is Easy FancyBox multi-site compatible? =
 
-Yes. Designed to work with **Network Activate** and does not require manual activation on each site in your network. You can even install it in mu-plugins: upload the complete /easy-fancybox/ directory to /wp-content/mu-plugins/ and move the file easy-fancybox.php one dir up.
+Yes. Designed to work with **Network Activate** and does not require manual activation on each site in your network.
 
 
 

@@ -350,7 +350,7 @@ var easy_fancybox_auto = function(){';
 		// Pro extension version compatibility message
 		if ( self::$do_compat_warning ) {
 			echo '<p class="update-nag">';
-			_e('Warning: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
+			_e('Notice: The current Easy FancyBox plugin version is not fully compatible with your version of the Pro extension. Some advanced options may not be functional.','easy-fancybox');
 			echo ' ';
 			if ( current_user_can( 'install_plugins' ) )
 				printf(__('Please <a href="%1$s" target="_blank">download and install the latest Pro version</a>.','easy-fancybox'), 'https://premium.status301.net/account/');
