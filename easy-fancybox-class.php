@@ -529,8 +529,7 @@ var easy_fancybox_auto = function(){';
 		
 		// metadata in Miscellaneous settings?
 		if ('1' == get_option( self::$options['Global']['options']['Miscellaneous']['options']['metaData']['id'], self::$options['Global']['options']['Miscellaneous']['options']['metaData']['default']) ) {
-			wp_deregister_script('jquery-metadata');
-			wp_register_script('jquery-metadata',EASY_FANCYBOX_PLUGINURL.'jquery.metadata.pack.js', array('jquery'), METADATA_VERSION, true);
+			wp_register_script('jquery-metadata',EASY_FANCYBOX_PLUGINURL.'jquery.metadata.min.js', array('jquery'), METADATA_VERSION, true);
 		}
 	}
 
