@@ -402,16 +402,17 @@ Yes. Designed to work with **Network Activate** and does not require manual acti
 
 = Plugin conflicts =
 
-- **jQuery Updater** moves jQuery to version 2+ wich is incompatible.
+- **Autoptimize** needs to have either (at least) the option "Force JavaScript in <head>" checked or both jQuery and the fancybox script files need to be excluded.
 - **All in One SEO Pack** and **Analytics for WordPress** with outbound link tracking enabled. Disable that feature.
 - **Better WP Security** randomly changes version numbers in linked file URLs, breaking the FancyBox stylesheet. Disable the option "Display random version number to all non-administrative users" in the Better WP Security settings.
 - By default **Google Analytics for WordPress** converts links like `href="#anyID"` to `href="http://yoursite.url/page/#anyID"`, disabling inline content shown in FancyBox.
+- **jQuery Updater** moves jQuery to version 2+ wich is incompatible.
+- Both the **uBillBoard** and **Camera slideshow** have their own easing script hard-coded which conflicts with the one in Easy FancyBox. The only way around the conflict is to set both the Easing In and Easing Out options on your Settings > Media page to **Swing**.
 - **Wordpress Firewall 2** blocks access to image files needed for porper display of the FancyBox overlay in older IE and other non-css3 browsers.
 - **WordPress Amazon Associate**: A script provided by Amazon and the FancyBox script are incompatible. Disabling _Product Preview_ in the **WP - Amazon > Settings** page should work around the issue.
 - **WP Slimstat** plugin interferes with the Easy FancyBox script for YouTube url conversion. When clicking a Youtube link, the movie opens in an overlay as it is supposed to but immediately after that, the complete page gets redirected to the original YouTube page. Adding a `class="noslimstat"` to the link is reported to work around the issue.
 - When using **WP-Minify**, the javascript files like `fancybox/jquery.fancybox-X.X.X.pack.js` and others need to be excluded from minification.
 - When using **W3 Total Cache**, minification needs to be switched off. You can try to run **WP-Minify** alongside W3TC to be able to exclude fancybox files (as suggested above) ans still have page speed benefit from minification.
-- Both the **uBillBoard** and **Camera slideshow** have their own easing script hard-coded which conflicts with the one in Easy FancyBox. The only way around the conflict is to set both the Easing In and Easing Out options on your Settings > Media page to **Swing**.
 - **WP Supersized** uses the Animate Enhanced jQuery extension which causes a conflict with the Easing extension used by FancyBox resulting in a 0px sized lightbox frame. Plus some kind of positioning issue with auto-centering. Sridhar Katakam wrote about a work-around on http://websitesetuppro.com/getting-easy-fancybox-to-work-properly-when-wp-supersized-is-active/.
 
 = Theme conflicts = 
@@ -501,6 +502,7 @@ TODO: make jQuery 1.6- compat optional
 * Color value sanitization
 * NEW: auto popup delay
 * NEW: pro extension version compatibility check routine
+* NEW: margin option
 * Dropped mu-plugins support
 
 = 1.5.7 =

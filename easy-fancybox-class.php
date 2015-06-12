@@ -517,7 +517,7 @@ var easy_fancybox_auto = function(){';
 		} else {
 			if ( 'elastic' == get_option( self::$options['IMG']['options']['transitionIn']['id'], self::$options['IMG']['options']['transitionIn']['default']) || 'elastic' == get_option( self::$options['IMG']['options']['transitionOut']['id'], self::$options['IMG']['options']['transitionOut']['default']) ) {
 				wp_deregister_script('jquery-easing');
-				wp_register_script('jquery-easing', EASY_FANCYBOX_PLUGINURL.'jquery.easing.pack.js', array('jquery'), EASING_VERSION, true);
+				wp_register_script('jquery-easing', EASY_FANCYBOX_PLUGINURL.'jquery.easing.min.js', array('jquery'), EASING_VERSION, true);
 			}
 		}
 	
@@ -547,10 +547,19 @@ var easy_fancybox_auto = function(){';
 		if (!self::$add_scripts)
 			return;
 
+		// FancyBox
 		wp_enqueue_script('jquery-fancybox');
-		wp_enqueue_script('jquery-easing');
-		wp_enqueue_script('jquery-mousewheel');
+		
+		// jQuery Easing, which is ot needed if jQueryUI Core Effects are loaded
+		if ( !wp_script_is( 'jquery-effects-core', 'enqueued' ) )
+			wp_enqueue_script('jquery-easing');
+
+		// jQuery Mousewheel, which is ot needed if jQueryUI Mouse is loaded
+		if ( !wp_script_is( 'jquery-ui-mouse', 'enqueued' ) )
+			wp_enqueue_script('jquery-mousewheel');
+
 		wp_enqueue_script('jquery-metadata');
+
 	}
 
 	public static function on_ready() {	
