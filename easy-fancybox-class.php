@@ -89,7 +89,7 @@ var easy_fancybox_handler = function(){';
 				continue;
 
 			echo '
-	/* ' . $key . ' (within foreach!) */';
+	/* ' . $key . ' */';
 			/*
 			 * Auto-detection routines (2x)
 			 */
