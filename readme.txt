@@ -1,7 +1,7 @@
 === Easy FancyBox ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Easy%20FancyBox&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
-Tags: fancybox, lightbox, gallery, image, photo, video, flash, nextgen, overlay, youtube, vimeo, dailymotion, pdf, svg, iframe, swf, jquery
+Tags: fancybox, lightbox, gallery, image, photo, video, flash, overlay, youtube, vimeo, dailymotion, pdf, svg, iframe, swf, jquery
 Requires at least: 3.3
 Tested up to: 4.2
 Stable tag: 1.5.7
@@ -157,8 +157,8 @@ Yes. All links with class **nolightbox** that would normally get auto-enabled, w
 
 NetxGEN has its own built in FancyBox version along with a choice of other lightbox scripts but if you prefer to use Easy FancyBox (because of better customisability) then you need to take some steps to make the two plugins compatible.
 
-1. Go to your Settings > Media admin page and switch OFF the FancyBox Auto-gallery option; 
-1. Go to Gallery > Other Options and set the Lightbox Effects option to "No lightbox" and click on Show Advanced Settings;
+1. Go to your Settings > Media admin page and switch OFF the FancyBox "Auto-gallery" option in the Images section; 
+1. Go to Gallery > Other Options and set the Lightbox Effects option to "Custom" and click on Show Advanced Settings;
 1. fill the Code field with 
 `
 class="fancybox" rel="%GALLERY_NAME%"
