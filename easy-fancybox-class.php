@@ -639,8 +639,6 @@ jQuery(document).on(\'ready post-load\', function(){ jQuery(\'.nofancybox\').rem
 	}
 
 	public static function init() {			
-		require_once(EASY_FANCYBOX_PLUGINDIR . 'easy-fancybox-settings.php');
-		
 		add_filter('embed_oembed_html', array(__CLASS__, 'add_video_wmode_opaque'), 10, 3);
 	}
 	
