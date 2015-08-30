@@ -1,7 +1,7 @@
 <?php
 class easyFancyBox_Options extends easyFancyBox {
 
-	static function go() {
+	public static function load_defaults() {
 
 	    parent::$options = array ( 
 
@@ -1549,5 +1549,3 @@ http://static.animoto.com/swf/w.swf?w=swf/vp1&f=Kf9POzQMSOGWyu41gtOtsw&i=m
 	}
 	
 }
-
-easyFancyBox_Options::go();
