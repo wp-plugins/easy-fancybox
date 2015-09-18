@@ -1,4 +1,7 @@
 <?php
+/**
+ * Easy FancyBox Options Class
+ */
 class easyFancyBox_Options extends easyFancyBox {
 
 	public static function load_defaults() {
@@ -202,6 +205,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'step' => '1',
 							'min' => '0',
 							'max' => '99',
+							'sanitize_callback' => 'intval',
 							'status' => 'disabled',
 							'class' => 'small-text',
 							'default' => '',
@@ -229,7 +233,8 @@ class easyFancyBox_Options extends easyFancyBox {
 							'input' => 'text',
 							'sanitize_callback' => 'intval',
 							'class' => 'small-text',
-							'default' => ''
+							'default' => '',
+							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 560 x 340</em><br />' . __('If content size is not set or cannot be determined automatically, these default dimensions will be used.','easy-fancybox') . '<br />'
 							),
 						'padding' => array (
 							'id' => 'fancybox_padding',
@@ -242,7 +247,7 @@ class easyFancyBox_Options extends easyFancyBox {
 							'sanitize_callback' => 'intval',
 							'class' => 'small-text',
 							'default' => '',
-							'description' => ''
+							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 10</em><br />'
 							),
 						'margin' => array (
 							'id' => 'fancybox_margin',
@@ -251,11 +256,11 @@ class easyFancyBox_Options extends easyFancyBox {
 							'input' => 'number',
 							'step' => '1',
 							'min' => '20',
-							'max' => '60',
+							'max' => '80',
 							'sanitize_callback' => 'intval',
 							'class' => 'small-text',
-							'default' => '',
-							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 560 x 340 x 10 x 40</em><br />' . __('If content size is not set or cannot be determined automatically, these default dimensions will be used.','easy-fancybox') . '<br />'
+							'default' => '20',
+							'description' => '<em>' . __('Default:','easy-fancybox')  . ' 40</em><br />'
 							),
 
 						'p2' => array (
@@ -387,13 +392,6 @@ class easyFancyBox_Options extends easyFancyBox {
 							'description' => __('Make media links open in a new tab when viewport falls below minimum width (above)','easy-fancybox')
 							),
 */
-						'compatIE6' => array (
-							'id' => 'fancybox_compatIE6',
-							'input' => 'checkbox',
-							'hide' => true,
-							'default' => '',
-							'description' => __('Include IE 6 and 7 compatibility style rules','easy-fancybox')
-							),
 						'compatIE8' => array (
 							'id' => 'fancybox_compatIE8',
 							'input' => 'checkbox',
