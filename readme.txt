@@ -44,6 +44,10 @@ Visit [FancyBox](http://fancybox.net/) for more information, examples and the Fa
 
 = Translators =
 
+Please go to https://translate.wordpress.org/projects/wp-plugins/easy-fancybox/ and share your knowledge!
+
+Current contributors:
+
 - **Croatian** * Ivan Capan (version 1.5.6)
 - **Czech** * Eldenroot (version 1.5.5)
 - **Dutch** * R.A. van Hagen, http://status301.net (version 1.5.6)
