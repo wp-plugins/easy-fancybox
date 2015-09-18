@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Easy%20FancyBox&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: fancybox, lightbox, gallery, image, photo, video, flash, nextgen, overlay, youtube, vimeo, dailymotion, pdf, svg, iframe, swf, jquery
 Requires at least: 3.3
-Tested up to: 4.2
+Tested up to: 4.4
 Stable tag: 1.5.7
 
 Easily enable the FancyBox jQuery extension on just about all media links. Multi-Site compatible. Supports iFrame and Flash movies.
@@ -44,10 +44,15 @@ Visit [FancyBox](http://fancybox.net/) for more information, examples and the Fa
 
 = Translators =
 
+Please go to https://translate.wordpress.org/projects/wp-plugins/easy-fancybox/ and share your knowledge!
+
+Current contributors:
+
 - **Croatian** * Ivan Capan (version 1.5.6)
 - **Czech** * Eldenroot (version 1.5.5)
 - **Dutch** * R.A. van Hagen, http://status301.net (version 1.5.6)
 - **French** * Emmanuel Maillard (version 1.5.5)
+- **Greek** * Dimitrios Kaisaris, http://www.foodblogstarter.com (version 1.5.7)
 - **Gujarati** * Apoto Team, http://www.apoto.com (version 1.5.0)
 - **Hindi** * Outshine Solutions, http://outshinesolutions.com (version 1.3.4.9)
 - **Indonesian** * Nasrulhaq Muiz, http://al-badar.net (version 1.5.5)
@@ -335,7 +340,7 @@ First go to your **Settings > Media** admin page and activate the **Inline** opt
 
 Next, open your page/post for editing in the HTML tab and wrap the inline content in
 `
-<div style="display:none" class="fancybox-hidden"><div id="fancyboxID-1" class="hentry" style="width:460px;height:380px;">
+<div style="display:none" class="fancybox-hidden"><div id="fancyboxID-1" class="hentry" style="width:460px;max-width:100%">
 ...inline content here...
 </div></div>
 `
@@ -358,7 +363,7 @@ Yes. There are several methods imaginable but the easiest would be to use the In
 <a href="#contact_form_pop" class="fancybox-inline">Contact Us</a>
 
 <div style="display:none" class="fancybox-hidden">
-    <div id="contact_form_pop" class="hentry" style="width:460px;height:380px;">
+    <div id="contact_form_pop" class="hentry" style="width:460px;max-width:100%">
         [contact-form-7 id="87" title="Contact form 1"]
     </div>
 </div>
@@ -489,11 +494,6 @@ If you still do not get to see your images in FancyBox, ask on the [Easy FancyBo
 Bugfix release.
 
 == Changelog ==
-
-TODO: optional disable for small sceen sizes
-TODO: move all script to footer and make that optional to for theme compat
-TODO: make jQuery inclusion optional
-TODO: make jQuery 1.6- compat optional
 
 = 1.5.7 =
 * FIX: Pro extension link update
